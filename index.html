@@ -3,12 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>T Farm's Web Design | Home</title>
-  
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- Custom CSS -->
+  <title>T Farms Web Design | Home</title>
+  <meta name="description" content="Portfolio of Tem Farmonov — Web Developer & SDR based in Raleigh, NC. HTML, CSS, Vue.js, WordPress, WooCommerce." />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
@@ -17,51 +13,53 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="Go to homepage">
-        <img src="images/Tem.svg" alt="T Farms Web Design logo" class="logo"/>
+        <img src="images/Tem.jpg" alt="Tem Farmonov profile photo" class="logo" />
         <span class="brand-text">
-          <span class="brand-title">T Farm's Web Design</span>
+          <span class="brand-title">T Farms Web Design</span>
           <span class="brand-subtitle">E-Portfolio</span>
         </span>
       </a>
 
       <nav class="main-nav" aria-label="Primary navigation">
-        <!-- Hamburger Toggle Button (visible on mobile) -->
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
-        </button>
-
-        <!-- Nav Menu (collapses on mobile) -->
-        <div class="nav-menu" id="navMenu">
-          <a class="nav-link" href="index.html" aria-current="page">Home</a>
-          <a class="nav-link" href="projects.html">Projects</a>
-          <a class="nav-link" href="about.html">About Me</a>
-          <a class="nav-link" href="contact.html">Contact</a>
-          <a class="nav-link nav-link--download" href="Farmonv_Resume.pdf" download>
-            Resume <span class="download-hint">(PDF)</span>
-          </a>
-        </div>
+        <a class="nav-link" href="index.html" aria-current="page">Home</a>
+        <a class="nav-link" href="projects.html">Projects</a>
+        <a class="nav-link" href="about.html">About Me</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+        <a class="nav-link nav-link--download" href="Farmonv_Resume.pdf" download>
+          Resume <span class="download-hint">(PDF)</span>
+        </a>
       </nav>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link" href="projects.html">Projects</a>
+    <a class="nav-link" href="about.html">About Me</a>
+    <a class="nav-link" href="contact.html">Contact</a>
+    <a class="nav-link nav-link--download" href="Farmonv_Resume.pdf" download>Resume (PDF)</a>
+  </nav>
 
   <main class="site-main">
     <div class="container">
 
       <section class="card hero">
         <div class="hero-text">
-          <h1>Introduction</h1>
+          <span class="section-label">Web Developer · SDR · Wake Tech, NC</span>
+          <h1>Hi, I'm Tem Farmonov</h1>
           <p class="lead">
             I build user-friendly, responsive websites and web apps. This portfolio highlights
             my work, skills, and what I'm currently learning.
           </p>
 
-          <h2 class="section-title">Mission Statement</h2>
+          <h2 class="section-title" style="font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);margin-top:1rem;">Mission Statement</h2>
           <p>
             My mission is to create modern, accessible web experiences that are fast, clean,
-            and enjoyable to use—whether it's a personal brand site, a business page, or an app.
+            and enjoyable to use — whether it's a personal brand site, a business page, or an app.
           </p>
 
           <div class="cta-row">
@@ -69,117 +67,132 @@
             <a class="btn btn--ghost" href="contact.html">Contact Me</a>
           </div>
         </div>
+        <img src="images/Tem.jpg" alt="Tem Farmonov" class="hero-photo" />
       </section>
 
 
       <section class="card gallery">
         <div class="gallery-header">
-          <h2>Carousel Gallery</h2>
-          <p class="muted">Quick look at featured projects</p>
+          <h2>Featured Projects</h2>
+          <p class="muted">Quick look at select work</p>
         </div>
 
         <div class="carousel" aria-label="Featured projects carousel">
+          <div class="carousel-arrow" role="button" aria-label="Scroll left" tabindex="0">&#8592;</div>
 
-          <div class="carousel-arrow" aria-hidden="true">←</div>
-
-          <div class="carousel-track">
-
-            <a class="project-tile" href="projects.html#project-1">
-              <div class="thumb" aria-hidden="true"></div>
+          <div class="carousel-track" id="carousel-track">
+            <a class="project-tile" href="projects.html#wordpress-blog">
+              <div class="thumb" style="background-image: url('images/WPblog.png'); background-size: cover; background-position: center;"></div>
               <h3>WordPress Blog</h3>
-              <p class="muted">CMS & theme customization</p>
+              <p class="muted">CMS, theme customization, WEB250.</p>
             </a>
 
-            <a class="project-tile" href="projects.html#project-2">
-              <div class="thumb" aria-hidden="true"></div>
+            <a class="project-tile" href="projects.html#vue-weather">
+              <div class="thumb" style="background-image: url('images/vueapp.png'); background-size: cover; background-position: center;"></div>
               <h3>Vue Weather App</h3>
-              <p class="muted">API integration & SPA</p>
+              <p class="muted">Vue.js SPA with live weather API.</p>
             </a>
 
-            <a class="project-tile" href="projects.html#project-3">
-              <div class="thumb" aria-hidden="true"></div>
+            <a class="project-tile" href="projects.html#portfolio-site">
+              <div class="thumb" style="background-image: url('images/ogportfolio.png'); background-size: cover; background-position: center;"></div>
               <h3>Portfolio Website</h3>
-              <p class="muted">Personal portfolio</p>
+              <p class="muted">HTML/CSS portfolio, WEB210.</p>
             </a>
 
-            <a class="project-tile" href="projects.html#project-4">
-              <div class="thumb" aria-hidden="true"></div>
+            <a class="project-tile" href="projects.html#online-resume">
+              <div class="thumb" style="background-image: url('images/onlineresume.png'); background-size: cover; background-position: center;"></div>
               <h3>Online Resume</h3>
-              <p class="muted">Structured web resume</p>
+              <p class="muted">Semantic HTML resume, WEB210.</p>
             </a>
           </div>
 
-          <div class="carousel-arrow" aria-hidden="true">→</div>
+          <div class="carousel-arrow" role="button" aria-label="Scroll right" tabindex="0">&#8594;</div>
         </div>
 
         <div class="gallery-footer">
-          <a class="btn btn--small" href="projects.html">More Projects</a>
+          <a class="btn btn--small btn--ghost" href="projects.html">See All Projects</a>
         </div>
       </section>
+
+
+      <section class="skills-strip">
+        <h2>Skills &amp; Tools</h2>
+        <div class="skill-tags">
+          <span class="skill-tag">HTML5</span>
+          <span class="skill-tag">CSS3</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Vue.js</span>
+          <span class="skill-tag">WordPress</span>
+          <span class="skill-tag">WooCommerce</span>
+          <span class="skill-tag">Bootstrap 5</span>
+          <span class="skill-tag">SEO</span>
+          <span class="skill-tag">Git / GitHub</span>
+          <span class="skill-tag">Responsive Design</span>
+          <span class="skill-tag">HubSpot</span>
+          <span class="skill-tag">Python</span>
+        </div>
+      </section>
+
     </div>
   </main>
 
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <nav class="footer-nav" aria-label="Secondary navigation">
-        <a class="footer-link" href="index.html">Home</a>
-        <a class="footer-link" href="projects.html">Projects</a>
-        <a class="footer-link" href="about.html">About Me</a>
-        <a class="footer-link" href="contact.html">Contact</a>
-        <a class="footer-link" href="Farmonv_Resume.pdf" download>Resume (PDF)</a>
-      </nav>
+      <div>
+        <p class="footer-title">Navigation</p>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a class="footer-link" href="index.html">Home</a>
+          <a class="footer-link" href="projects.html">Projects</a>
+          <a class="footer-link" href="about.html">About Me</a>
+          <a class="footer-link" href="contact.html">Contact</a>
+          <a class="footer-link" href="Farmonv_Resume.pdf" download>Resume (PDF)</a>
+        </nav>
+      </div>
 
       <div class="footer-social">
-        <p class="footer-title">Social / Contact</p>
+        <p class="footer-title">Connect</p>
         <div class="footer-links">
-          <a class="footer-link" href="mailto:tfarmonov@gmail.com">Email</a>
-          <a class="footer-link" href="https://linkedin.com/in/temurbekfarmonov" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="footer-link" href="https://github.com/tfarmonov" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="footer-link" href="mailto:tmfarmonov@gmail.com">Email</a>
+          <a class="footer-link" href="https://linkedin.com/in/temurfarmonov" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+          <a class="footer-link" href="https://github.com/tfarmonov" target="_blank" rel="noreferrer noopener">GitHub</a>
         </div>
       </div>
     </div>
 
     <div class="container footer-bottom">
-      <p>© 2026 T Farms Web Design. All rights reserved.</p>
+      <p>© 2026 T Farms Web Design · Tem Farmonov</p>
+      <p>Wake Technical Community College</p>
     </div>
   </footer>
 
-  <!-- Bootstrap JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Mobile Nav Toggle Script -->
   <script>
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
+    // Hamburger toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      mobileNav.classList.toggle('is-open', !open);
+      document.body.style.overflow = !open ? 'hidden' : '';
+    });
 
-    if (navToggle && navMenu) {
-      navToggle.addEventListener('click', function() {
-        const isExpanded = this.getAttribute('aria-expanded') === 'true';
-        this.setAttribute('aria-expanded', !isExpanded);
-        navMenu.classList.toggle('active');
-        this.classList.toggle('active');
+    // Close mobile nav on link click
+    mobileNav.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        mobileNav.classList.remove('is-open');
+        document.body.style.overflow = '';
       });
+    });
 
-      // Close menu when clicking a link
-      const navLinks = navMenu.querySelectorAll('.nav-link');
-      navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          navMenu.classList.remove('active');
-          navToggle.classList.remove('active');
-          navToggle.setAttribute('aria-expanded', 'false');
-        });
+    // Carousel scroll buttons
+    const track = document.getElementById('carousel-track');
+    document.querySelectorAll('.carousel-arrow').forEach((arrow, i) => {
+      arrow.addEventListener('click', () => {
+        track.scrollBy({ left: i === 0 ? -240 : 240, behavior: 'smooth' });
       });
-
-      // Close menu when clicking outside
-      document.addEventListener('click', (e) => {
-        if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-          navMenu.classList.remove('active');
-          navToggle.classList.remove('active');
-          navToggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-    }
+    });
   </script>
 
 </body>

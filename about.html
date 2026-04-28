@@ -3,127 +3,238 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>T Farm's Web Design | About Me</title>
-  
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- Custom CSS -->
+  <title>T Farms Web Design | About Me</title>
+  <meta name="description" content="About Temurbek Farmonov — Web Developer, SEO Specialist, and Wake Tech Honors student based in Raleigh, NC." />
   <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* ── About-page extras ── */
+    .about-bio {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.75rem;
+      align-items: center;
+    }
+
+    .about-photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 16px;
+      object-fit: cover;
+      border: 2px solid var(--accent-border);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      flex-shrink: 0;
+    }
+
+    .about-name { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: .3rem; }
+    .about-role { font-size: 1rem; color: var(--accent); margin-bottom: .2rem; font-weight: 500; }
+    .about-location { font-size: .9rem; color: var(--muted); }
+    .about-location a { color: var(--muted); text-decoration: underline; }
+
+    .accent-card {
+      border-left: 3px solid var(--accent);
+    }
+
+    .accent-card .section-label { color: var(--accent); }
+
+    blockquote {
+      margin: 0;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--text);
+      opacity: .9;
+      line-height: 1.65;
+    }
+
+    blockquote::before {
+      content: '\201C';
+      font-family: 'DM Serif Display', serif;
+      font-size: 3rem;
+      color: var(--accent);
+      line-height: 0;
+      vertical-align: -0.6rem;
+      margin-right: .15rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .edu-block h3,
+    .cert-block h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: .88rem;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .65rem;
+    }
+
+    .edu-degree { font-weight: 600; margin-bottom: .15rem; }
+    .edu-school { color: var(--muted); font-size: .92rem; margin-bottom: .1rem; }
+    .edu-detail { color: var(--muted); font-size: .88rem; }
+
+    .cert-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+    .cert-list li {
+      font-size: .92rem;
+      display: flex;
+      align-items: baseline;
+      gap: .5rem;
+      color: var(--text);
+    }
+
+    .cert-list li::before {
+      content: '✓';
+      color: var(--accent);
+      font-size: .85rem;
+      flex-shrink: 0;
+    }
+
+    .cta-center {
+      text-align: center;
+    }
+
+    .cta-center .section-label { justify-content: center; display: flex; }
+    .cta-center p { color: var(--muted); margin-bottom: 1.25rem; }
+    .cta-center .cta-row { justify-content: center; }
+
+    .card + .card { margin-top: 1.25rem; }
+
+    @media (max-width: 640px) {
+      .about-bio {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .about-photo { margin: 0 auto; }
+      .two-col { grid-template-columns: 1fr; }
+      .cta-row { justify-content: center; }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="Go to homepage">
-        <img src="images/Tem.svg" alt="T Farms Web Design logo" class="logo"/>
+        <img src="images/Tem.jpg" alt="Tem Farmonov profile photo" class="logo" />
         <span class="brand-text">
-          <span class="brand-title">T Farm's Web Design</span>
+          <span class="brand-title">T Farms Web Design</span>
           <span class="brand-subtitle">E-Portfolio</span>
         </span>
       </a>
 
       <nav class="main-nav" aria-label="Primary navigation">
-        <!-- Hamburger Toggle Button (visible on mobile) -->
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
-        </button>
-
-        <!-- Nav Menu (collapses on mobile) -->
-        <div class="nav-menu" id="navMenu">
-          <a class="nav-link" href="index.html">Home</a>
-          <a class="nav-link" href="projects.html">Projects</a>
-          <a class="nav-link" href="about.html" aria-current="page">About Me</a>
-          <a class="nav-link" href="contact.html">Contact</a>
-          <a class="nav-link nav-link--download" href="Farmonv_Resume.pdf" download>
-            Resume <span class="download-hint">(PDF)</span>
-          </a>
-        </div>
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="projects.html">Projects</a>
+        <a class="nav-link" href="about.html" aria-current="page">About Me</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+        <a class="nav-link nav-link--download" href="Farmonv_Resume.pdf" download>
+          Resume <span class="download-hint">(PDF)</span>
+        </a>
       </nav>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link" href="projects.html">Projects</a>
+    <a class="nav-link" href="about.html">About Me</a>
+    <a class="nav-link" href="contact.html">Contact</a>
+    <a class="nav-link nav-link--download" href="Farmonv_Resume.pdf" download>Resume (PDF)</a>
+  </nav>
 
-  <!-- MAIN CONTENT -->
+
   <main class="site-main">
     <div class="container">
 
-      <!-- BIO SECTION -->
-      <section class="card mb-4">
-        <div class="row align-items-center">
-          <div class="col-md-3 text-center mb-3 mb-md-0">
-            <img src="images/Me.jpg" alt="Temurbek Farmonov" class="img-fluid rounded-square border border-3" style="border-color: var(--accent) !important; max-width: 180px;">
-          </div>
-          <div class="col-md-9">
-            <h1 class="mb-2">Temurbek Farmonov</h1>
-            <p class="lead mb-1">Web Developer & SEO Specialist</p>
-            <p class="muted mb-0">Raleigh, NC | <a href="/cdn-cgi/l/email-protection#eb9f8d8a99868485849dab8c868a8287c5888486"><span class="__cf_email__" data-cfemail="dbafbdbaa9b6b4b5b4ad9bbcb6bab2b7f5b8b4b6">[email&#160;protected]</span></a></p>
+      <!-- Bio -->
+      <section class="card">
+        <div class="about-bio">
+          <img src="images/Me.jpg" alt="Temurbek Farmonov" class="about-photo" />
+          <div>
+            <h1 class="about-name">Temurbek Farmonov</h1>
+            <p class="about-role">Web Developer &amp; SEO Specialist &amp; Sales Development Representative</p>
+            <p class="about-location">
+              Raleigh, NC &nbsp;·&nbsp;
+              <a href="mailto:tmfarmonov@gmail.com">tmfarmonov@gmail.com</a>
+            </p>
           </div>
         </div>
       </section>
 
-      <!-- ABOUT ME -->
-      <section class="card mb-4">
-        <h2 class="section-title">About Me</h2>
+      <!-- About Me -->
+      <section class="card">
+        <span class="section-label">About Me</span>
         <p class="lead">
-          I'm a technology-driven professional with a strong foundation in Python programming, web development, 
-          SEO, and digital marketing. Currently pursuing my Associate in Web Development at Wake Tech Community College, 
+          I'm a technology-driven professional with a strong foundation in Python programming, web development,
+          SEO, and digital marketing. Currently pursuing my Associate in Web Development at Wake Tech Community College,
           I'm passionate about creating responsive, user-friendly web experiences.
         </p>
         <p>
-          My background combines technical skills with business acumen. I have experience translating technical 
-          concepts into business value, managing client-facing operations, and leading teams in fast-paced 
-          environments. Whether it's optimizing websites for search engines, building dynamic web applications, 
+          My background combines technical skills with business acumen. I have experience translating technical
+          concepts into business value, managing client-facing operations, and leading teams in fast-paced
+          environments. Whether it's optimizing websites for search engines, building dynamic web applications,
           or explaining complex technical processes to clients, I thrive on solving problems and delivering results.
         </p>
-        <p>
-          As a Wake Tech Honors Society member with a 3.53 program GPA, I stay current with industry trends and 
-          continuously expand my skill set through certifications in Python, SEO, digital marketing, and 
+        <p style="margin-bottom:0">
+          As a Wake Tech Honors Society member with a 3.53 program GPA, I stay current with industry trends and
+          continuously expand my skill set through certifications in Python, SEO, digital marketing, and
           growth-driven design.
         </p>
       </section>
 
-      <!-- PERSONAL BRANDING STATEMENT -->
-      <section class="card mb-4" style="border-left: 4px solid var(--accent);">
-        <h3 class="section-title" style="color: var(--accent);">Personal Branding Statement</h3>
-        <p class="lead fst-italic">
-          "My mission is to create modern, accessible web experiences that are fast, clean,
-            and enjoyable to use—whether it's a personal brand site, a business page, or an app.
-          </p>
-        </p>
+      <!-- Branding Statement -->
+      <section class="card accent-card">
+        <span class="section-label">Personal Branding Statement</span>
+        <blockquote>
+          My mission is to create modern, accessible web experiences that are fast, clean,
+          and enjoyable to use — whether it's a personal brand site, a business page, or an app.
+        </blockquote>
       </section>
 
-      <!-- EDUCATION & CERTIFICATIONS -->
-      <section class="card mb-4">
-        <div class="row">
-          <div class="col-md-6 mb-3 mb-md-0">
-            <h3 class="h5 mb-2" style="color: var(--accent);">Education</h3>
-            <p class="mb-1"><strong>Associate in Web Development</strong></p>
-            <p class="small mb-1">Wake Tech Community College</p>
-            <p class="small muted mb-0">Program GPA: 3.53 | Honors Society Member</p>
+      <!-- Education & Certifications -->
+      <section class="card">
+        <div class="two-col">
+          <div class="edu-block">
+            <h3>Education</h3>
+            <p class="edu-degree">Associate in Web Development</p>
+            <p class="edu-school">Wake Tech Community College</p>
+            <p class="edu-detail">Program GPA: 3.53 &nbsp;·&nbsp; Honors Society Member</p>
           </div>
-          <div class="col-md-6">
-            <h3 class="h5 mb-2" style="color: var(--accent);">Recent Certifications</h3>
-            <ul class="small mb-0" style="list-style: none; padding-left: 0;">
-              <li class="mb-1">✓ Information Technology Specialist – Python</li>
-              <li class="mb-1">✓ Growth-Driven Design (HubSpot)</li>
-              <li class="mb-1">✓ Semrush SEO & Digital Marketing</li>
-              <li class="mb-1">✓ HTML Essential Training</li>
+          <div class="cert-block">
+            <h3>Certifications</h3>
+            <ul class="cert-list">
+              <li>Information Technology Specialist – Python</li>
+              <li>Growth-Driven Design (HubSpot)</li>
+              <li>Semrush SEO &amp; Digital Marketing</li>
+              <li>HTML Essential Training</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <!-- CALL TO ACTION -->
-      <section class="card mb-4 text-center">
-        <h3 class="section-title mb-3">Interested in working together?</h3>
-        <div class="cta-row justify-content-center">
+      <!-- CTA -->
+      <section class="card cta-center">
+        <span class="section-label">Interested in working together?</span>
+        <p>Let's connect — I'm always open to new opportunities and collaborations.</p>
+        <div class="cta-row">
           <a href="projects.html" class="btn">View My Projects</a>
-          <a href="Farmonv_Resume.pdf" download class="btn btn--ghost">Download Resume (PDF)</a>
+          <a href="resume.pdf" download class="btn btn--ghost">Download Resume</a>
           <a href="contact.html" class="btn btn--ghost">Contact Me</a>
         </div>
       </section>
@@ -132,61 +243,52 @@
   </main>
 
 
-  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <nav class="footer-nav" aria-label="Footer navigation">
-        <a class="footer-link" href="index.html">Home</a>
-        <a class="footer-link" href="projects.html">Projects</a>
-        <a class="footer-link" href="about.html">About Me</a>
-        <a class="footer-link" href="contact.html">Contact</a>
-        <a class="footer-link" href="Farmonv_Resume.pdf" download>Resume (PDF)</a>
-      </nav>
+      <div>
+        <p class="footer-title">Navigation</p>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a class="footer-link" href="index.html">Home</a>
+          <a class="footer-link" href="projects.html">Projects</a>
+          <a class="footer-link" href="about.html">About Me</a>
+          <a class="footer-link" href="contact.html">Contact</a>
+          <a class="footer-link" href="Farmonv_Resume.pdf" download>Resume (PDF)</a>
+        </nav>
+      </div>
 
       <div class="footer-social">
-        <p class="footer-title">Social / Contact</p>
+        <p class="footer-title">Connect</p>
         <div class="footer-links">
-          <a class="footer-link" href="/cdn-cgi/l/email-protection#56223037243b3938392016313b373f3a7835393b">Email</a>
-          <a class="footer-link" href="https://linkedin.com/in/temurbekfarmonov" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="footer-link" href="https://github.com/tfarmonov" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="footer-link" href="mailto:tmfarmonov@gmail.com">Email</a>
+          <a class="footer-link" href="https://linkedin.com/in/temurbekfarmonov" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+          <a class="footer-link" href="https://github.com/tfarmonov" target="_blank" rel="noreferrer noopener">GitHub</a>
         </div>
       </div>
     </div>
 
     <div class="container footer-bottom">
-      <p>© 2026 T Farms Web Design. All rights reserved.</p>
-  
-      <!-- Mobile Nav Toggle Script -->
-    <script>
-      const navToggle = document.getElementById('navToggle');
-      const navMenu = document.getElementById('navMenu');
+      <p>© 2026 T Farms Web Design · Tem Farmonov</p>
+      <p>Wake Technical Community College</p>
+    </div>
+  </footer>
 
-      if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function() {
-          const isExpanded = this.getAttribute('aria-expanded') === 'true';
-          this.setAttribute('aria-expanded', !isExpanded);
-          navMenu.classList.toggle('active');
-          this.classList.toggle('active');
-        });
-
-        const navLinks = navMenu.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-          link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
-            navToggle.setAttribute('aria-expanded', 'false');
-          });
-        });
-
-        document.addEventListener('click', (e) => {
-          if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
-            navToggle.setAttribute('aria-expanded', 'false');
-          }
-        });
-      }
-    </script>
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      mobileNav.classList.toggle('is-open', !open);
+      document.body.style.overflow = !open ? 'hidden' : '';
+    });
+    mobileNav.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        mobileNav.classList.remove('is-open');
+        document.body.style.overflow = '';
+      });
+    });
+  </script>
 
 </body>
 </html>

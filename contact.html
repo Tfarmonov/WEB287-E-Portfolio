@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>T Farms Web Design | Contact</title>
+  <meta name="description" content="Get in touch with Tem Farmonov — web developer and SDR based in Raleigh, NC." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* ── Contact layout ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 1.25rem;
+      align-items: start;
+      margin-top: 1.25rem;
+    }
+
+    /* ── Form ── */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-group:last-of-type { margin-bottom: 1.25rem; }
+
+    label {
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: .3px;
+      text-transform: uppercase;
+    }
+
+    input, textarea, select {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: .95rem;
+      padding: .7rem .9rem;
+      outline: none;
+      transition: border-color .2s, background .2s;
+      width: 100%;
+    }
+
+    input::placeholder, textarea::placeholder { color: var(--muted); opacity: .7; }
+
+    input:focus, textarea:focus {
+      border-color: var(--accent-border);
+      background: rgba(212,168,83,0.05);
+    }
+
+    textarea { resize: vertical; min-height: 140px; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-submit {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .submit-note {
+      font-size: .82rem;
+      color: var(--muted);
+    }
+
+    /* Success state */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .form-success .check {
+      font-size: 2.5rem;
+      margin-bottom: .5rem;
+    }
+
+    .form-success h3 { margin-bottom: .4rem; }
+    .form-success p { color: var(--muted); margin: 0; }
+
+    /* ── Right column ── */
+    .sidebar { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    /* ── Social cards ── */
+    .social-cards { display: flex; flex-direction: column; gap: .75rem; }
+
+    .social-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.025);
+      transition: border-color .2s, background .2s, transform .15s;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .social-card:hover {
+      border-color: var(--border-hover);
+      background: rgba(255,255,255,0.055);
+      transform: translateX(3px);
+    }
+
+    .social-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+    }
+
+    .social-card--linkedin .social-icon { background: rgba(10,102,194,0.15); border-color: rgba(10,102,194,0.35); }
+    .social-card--github   .social-icon { background: rgba(255,255,255,0.06); }
+    .social-card--email    .social-icon { background: var(--accent-dim); border-color: var(--accent-border); }
+
+    .social-info { flex: 1; min-width: 0; }
+    .social-name { font-weight: 600; font-size: .95rem; margin-bottom: .1rem; }
+    .social-handle { font-size: .82rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .social-arrow { color: var(--muted); font-size: 1rem; flex-shrink: 0; }
+
+    /* ── Quick info card ── */
+    .info-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .65rem; }
+
+    .info-list li {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      font-size: .92rem;
+      color: var(--muted);
+    }
+
+    .info-list li span:first-child {
+      font-size: 1rem;
+      flex-shrink: 0;
+      width: 20px;
+      text-align: center;
+    }
+
+    .info-list li strong { color: var(--text); }
+
+    /* ── Responsive ── */
+    @media (max-width: 820px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .sidebar { order: -1; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Go to homepage">
+        <img src="images/Tem.jpg" alt="Tem Farmonov profile photo" class="logo" />
+        <span class="brand-text">
+          <span class="brand-title">T Farms Web Design</span>
+          <span class="brand-subtitle">E-Portfolio</span>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="projects.html">Projects</a>
+        <a class="nav-link" href="about.html">About Me</a>
+        <a class="nav-link" href="contact.html" aria-current="page">Contact</a>
+        <a class="nav-link nav-link--download" href="Farmonv_Resume.pdf" download>
+          Resume <span class="download-hint">(PDF)</span>
+        </a>
+      </nav>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link" href="projects.html">Projects</a>
+    <a class="nav-link" href="about.html">About Me</a>
+    <a class="nav-link" href="contact.html">Contact</a>
+    <a class="nav-link nav-link--download" href="Farmonv_Resume.pdf" download>Resume (PDF)</a>
+  </nav>
+
+
+  <main class="site-main">
+    <div class="container">
+
+      <h1 class="page-title">Get In Touch</h1>
+      <p class="muted">Have a project in mind or just want to connect? Fill out the form or reach out directly.</p>
+
+      <div class="contact-grid">
+
+        <!-- ── Contact Form ── -->
+        <section class="card">
+          <span class="section-label">Send a Message</span>
+
+          <form id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name" placeholder="Jane" required />
+              </div>
+              <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last-name" placeholder="Smith" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Project inquiry, collaboration, etc." />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell me about your project or what you'd like to discuss…" required></textarea>
+            </div>
+
+            <div class="form-submit">
+              <button type="submit" class="btn">Send Message</button>
+              <span class="submit-note">I typically respond within 24 hours.</span>
+            </div>
+          </form>
+
+          <div class="form-success" id="form-success">
+            <div class="check">✉️</div>
+            <h3>Message Sent!</h3>
+            <p>Thanks for reaching out. I'll get back to you within 24 hours.</p>
+          </div>
+        </section>
+
+
+        <!-- ── Right sidebar ── -->
+        <aside class="sidebar">
+
+          <!-- Quick info -->
+          <div class="card">
+            <span class="section-label">Quick Info</span>
+            <ul class="info-list">
+              <li>
+                <span>📍</span>
+                <span><strong>Location:</strong> Raleigh, NC</span>
+              </li>
+              <li>
+                <span>🎓</span>
+                <span><strong>School:</strong> Wake Tech Community College</span>
+              </li>
+              <li>
+                <span>💼</span>
+                <span><strong>Open to:</strong> Freelance &amp; Full-time roles</span>
+              </li>
+              <li>
+                <span>⚡</span>
+                <span><strong>Response time:</strong> Within 24 hours</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Social cards -->
+          <div class="card">
+            <span class="section-label">Connect Directly</span>
+            <div class="social-cards">
+
+              <a class="social-card social-card--email" href="mailto:tmfarmonov@gmail.com">
+                <div class="social-icon">✉️</div>
+                <div class="social-info">
+                  <p class="social-name">Email</p>
+                  <p class="social-handle">tmfarmonov@gmail.com</p>
+                </div>
+                <span class="social-arrow">↗</span>
+              </a>
+
+              <a class="social-card social-card--linkedin" href="https://linkedin.com/in/temurbekfarmonov" target="_blank" rel="noreferrer noopener">
+                <div class="social-icon">in</div>
+                <div class="social-info">
+                  <p class="social-name">LinkedIn</p>
+                  <p class="social-handle">in/temurbekfarmonov</p>
+                </div>
+                <span class="social-arrow">↗</span>
+              </a>
+
+              <a class="social-card social-card--github" href="https://github.com/tfarmonov" target="_blank" rel="noreferrer noopener">
+                <div class="social-icon">⌥</div>
+                <div class="social-info">
+                  <p class="social-name">GitHub</p>
+                  <p class="social-handle">github.com/tfarmonov</p>
+                </div>
+                <span class="social-arrow">↗</span>
+              </a>
+
+            </div>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p class="footer-title">Navigation</p>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a class="footer-link" href="index.html">Home</a>
+          <a class="footer-link" href="projects.html">Projects</a>
+          <a class="footer-link" href="about.html">About Me</a>
+          <a class="footer-link" href="contact.html">Contact</a>
+          <a class="footer-link" href="Farmonv_Resume.pdf" download>Resume (PDF)</a>
+        </nav>
+      </div>
+
+      <div class="footer-social">
+        <p class="footer-title">Connect</p>
+        <div class="footer-links">
+          <a class="footer-link" href="mailto:tmfarmonov@my.waketech.edu">Email</a>
+          <a class="footer-link" href="https://linkedin.com/in/temurbekfarmonov" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+          <a class="footer-link" href="https://github.com/tfarmonov" target="_blank" rel="noreferrer noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© 2026 T Farms Web Design · Tem Farmonov</p>
+      <p>Wake Technical Community College</p>
+    </div>
+  </footer>
+
+
+  <script>
+    // Hamburger
+    const toggle = document.querySelector('.nav-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      mobileNav.classList.toggle('is-open', !open);
+      document.body.style.overflow = !open ? 'hidden' : '';
+    });
+    mobileNav.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        mobileNav.classList.remove('is-open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Form submission (simulated — wire up to Formspree/EmailJS for real sending)
+    const form = document.getElementById('contact-form');
+    const successMsg = document.getElementById('form-success');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Basic validation
+      const required = form.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(field => {
+        field.style.borderColor = '';
+        if (!field.value.trim()) {
+          field.style.borderColor = 'rgba(220,80,80,0.7)';
+          valid = false;
+        }
+      });
+      if (!valid) return;
+
+      // Simulate sending
+      const btn = form.querySelector('button[type="submit"]');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        form.style.display = 'none';
+        successMsg.style.display = 'block';
+      }, 900);
+    });
+  </script>
+
+</body>
+</html>
